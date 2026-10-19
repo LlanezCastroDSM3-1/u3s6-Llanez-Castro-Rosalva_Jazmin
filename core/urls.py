@@ -7,13 +7,16 @@ from . import views
 urlpatterns = [
     # '': la página de inicio de la Semana 3 ("Hola desde MySQL"); no la borres
     path('', views.inicio, name='inicio'),
-    # /servicios/: la vista de listado que ya existía desde la Semana 3
+    # /servicios/: la vista de listado
     path('servicios/', views.servicios, name='servicios'),
     # /servicios/nuevo/: formulario en blanco para crear un registro
     path('servicios/nuevo/', views.crear_servicio, name='crear_servicio'),
-    # /servicios/<int:pk>/editar/: <int:pk> captura el id de la URL y lo pasa como argumento a la vista
+    # /servicios/<int:pk>/editar/
     path('servicios/<int:pk>/editar/', views.editar_servicio, name='editar_servicio'),
-    # /servicios/<int:pk>/eliminar/: mismo patrón, para la pantalla de confirmación de borrado
+    # /servicios/<int:pk>/eliminar/
     path('servicios/<int:pk>/eliminar/', views.eliminar_servicio, name='eliminar_servicio'),
-# cierra la lista urlpatterns
+    # Autenticación y sesiones
+    path('registro/', views.registro, name='registro'),
+    path('login/', views.iniciar_sesion, name='login'),
+    path('logout/', views.cerrar_sesion, name='logout'),
 ]
